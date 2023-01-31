@@ -132,7 +132,8 @@ jobs:
           # Compile method and parameter description: https://docs.armbian.com/Developer-Guide_Build-Options
           cd build/
           sudo ./compile.sh RELEASE=${{ env.ARMBIAN_RELEASE }} BOARD=odroidn2 BRANCH=current BUILD_ONLY=default HOST=armbian EXPERT=yes \
-                            BUILD_DESKTOP=no BUILD_MINIMAL=no KERNEL_CONFIGURE=no CLEAN_LEVEL="make,debs" COMPRESS_OUTPUTIMAGE="sha"
+                            BUILD_DESKTOP=no BUILD_MINIMAL=yes KERNEL_CONFIGURE=no CLEAN_LEVEL="make,debs,oldcache" COMPRESS_OUTPUTIMAGE="sha" \
+                            REPOSITORY_INSTALL="armbian-config" USE_TORRENT="yes" MULTITHREAD="30" DEST_LANG="ru_RU.UTF-8"
           echo "build_tag=Armbian_${{ env.ARMBIAN_RELEASE }}_$(date +"%m.%d.%H%M")" >> ${GITHUB_OUTPUT}
           echo "status=success" >> ${GITHUB_OUTPUT}
 
