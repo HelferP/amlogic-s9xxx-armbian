@@ -137,7 +137,7 @@ jobs:
           cd build/
           sudo ./compile.sh RELEASE=${{ env.ARMBIAN_RELEASE }} BOARD=odroidn2 BRANCH=current BUILD_ONLY=default HOST=armbian EXPERT=yes \
                             BUILD_DESKTOP=no BUILD_MINIMAL=yes KERNEL_CONFIGURE=no CLEAN_LEVEL="make,debs,oldcache" COMPRESS_OUTPUTIMAGE="sha" \
-                            REPOSITORY_INSTALL="armbian-config" USE_TORRENT="yes" MULTITHREAD="30" DEST_LANG="ru_RU.UTF-8"
+                            REPOSITORY_INSTALL="armbian-config" USE_TORRENT="yes"
           echo "build_tag=Armbian_${{ env.ARMBIAN_RELEASE }}_$(date +"%m.%d.%H%M")" >> ${GITHUB_OUTPUT}
           echo "status=success" >> ${GITHUB_OUTPUT}
 
