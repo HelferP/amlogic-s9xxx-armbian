@@ -1,12 +1,12 @@
 # instructions / 使用说明
 
-The list of devices supported by Amlogic TV Boxes, the configuration file in the `Armbian` system is [/etc/model_database.conf](../armbian-files/common-files/etc/model_database.conf), and the configuration file in the `OpenWrt` system is [/etc/model_database.txt](https://github.com/ophub/amlogic-s9xxx-openwrt/blob/main/amlogic-s9xxx/common-files/rootfs/etc/model_database.txt).
+The list of devices supported by Amlogic TV Boxes, the configuration file in the `Armbian` system is [/etc/model_database.conf](../armbian-files/common-files/etc/model_database.conf), and the configuration file in the `OpenWrt` system is [/etc/model_database.conf](https://github.com/ophub/amlogic-s9xxx-openwrt/blob/main/make-openwrt/openwrt-files/common-files/etc/model_database.conf).
 
 Where the value of `BUILD` is `yes`, it is the system of some boxes packed by default, and these boxes can be used directly. The default value is `no`, and these unpacked boxes need to download the same `FAMILY` packaged system (it is recommended to download the `5.15/5.4` kernel system). After writing to `USB`, you can open the `boot partition on USB` on the computer, modify the `dtb name of FDT` in the `/boot/uEnv.txt` file, and other boxes in the adaptation list.
 
 For users who perform custom compilation in the `fork` source code repository, if their device is not in the default packaging list, they can modify `no` in `BUILD` to `yes`, and set `a unique value` for `BOARD` to directly package their own device. The `unique value` added to `BOARD` can be used independently when packaging system, for example, `./rebuild -b s905x3` will generate the Armbian system corresponding to `s905x3` configuration, You need to add `BOARD` to [armbian_board](../../.github/workflows/build-armbian.yml#L20) option in the workflow control file when compiling separately in `github Actions`. When building all, `BUILD` is `yes`, all will be packaged.
 
-支持的 Amlogic 电视盒子列表，在 `Armbian` 系统中配置文件的位置为 [/etc/model_database.conf](../armbian-files/common-files/etc/model_database.conf)，在 `OpenWrt` 系统中配置文件的位置为 [/etc/model_database.txt](https://github.com/ophub/amlogic-s9xxx-openwrt/blob/main/amlogic-s9xxx/common-files/rootfs/etc/model_database.txt)。
+支持的 Amlogic 电视盒子列表，在 `Armbian` 系统中配置文件的位置为 [/etc/model_database.conf](../armbian-files/common-files/etc/model_database.conf)，在 `OpenWrt` 系统中配置文件的位置为 [/etc/model_database.conf](https://github.com/ophub/amlogic-s9xxx-openwrt/blob/main/make-openwrt/openwrt-files/common-files/etc/model_database.conf)。
 
 其中 `BUILD` 的值是 `yes` 的是默认打包的部分盒子的系统，这些盒子可以直接使用。默认值是 `no` 的没有打包，这些没有打包的盒子使用时需要下载相同 `FAMILY` 的打包好的系统（推荐下载 `5.15/5.4` 内核的系统），在写入 `USB` 后，可以在电脑上打开 `USB 中的 boot 分区`，修改 `/boot/uEnv.txt` 文件中 `FDT 的 dtb 名称`，适配列表中的其他盒子。
 
@@ -34,6 +34,7 @@ For users who perform custom compilation in the `fork` source code repository, i
 <tr><td>116</td><td>CM311-1/HG680-LC</td><td>s905l3</td><td>meson-gxl-s905l2-x7-5g.dtb</td><td>u-boot-p212.bin</td><td>NA</td><td>NA</td><td>4C@1908Mhz,2+8G,USB2.0x2,LAN 100Mb Nic</td><td>meson-gxl</td><td>s905l3</td><td>no</td></tr>
 <tr><td>117</td><td>E900V22E</td><td>s905l3b</td><td>meson-gxl-s905l3b-e900v22e.dtb</td><td>u-boot-s905x-s912.bin</td><td>NA</td><td>NA</td><td>4C@1908Mhz,S905L3b,2+8G,USB2.0x2,LAN 100Mb Nic(Need to flash to android9 system)</td><td>meson-gxl</td><td>s905l3</td><td>no</td></tr>
 <tr><td>118</td><td>BesTV R3300L</td><td>s905l-b</td><td>meson-gxl-s905x-p212.dtb</td><td>u-boot-r3300l.bin</td><td>r3300l-u-boot.bin.sd.bin</td><td>NA</td><td>1+8G,100Mb Nic(Use: extlinux/extlinux.conf)</td><td>meson-gxl</td><td>s905lb-r3300l</td><td>yes</td></tr>
+<tr><td>119</td><td>X96W/FunTV</td><td>s905w</td><td>meson-gxl-s905w-x96w.dtb</td><td>NA</td><td>NA</td><td>NA</td><td>2GB-RAM,16GB-ROM,100Mb Nic,AP6255 wifi/Bluetooth(wifi:bcm4329-fmac,Bluetooth:bcm4345c5)</td><td>meson-gxl</td><td>s905w</td><td>no</td></tr>
 
 <tr><td>201</td><td>Octopus Planet</td><td>s912</td><td>meson-gxm-octopus-planet.dtb</td><td>u-boot-zyxq.bin</td><td>NA</td><td>NA</td><td>4C@1512Mhz+4C@1000Mhz,2GB Mem,1Gb Nic</td><td>meson-gxm</td><td>s912</td><td>yes</td></tr>
 <tr><td>202</td><td>Octopus Planet (FAKE)</td><td>s912</td><td>meson-gxm-octopus-planet.dtb</td><td>u-boot-zyxq.bin</td><td>NA</td><td>bl-fake-octopus-planet.bin</td><td>4C@1512Mhz+4C@1000Mhz,2GB Mem,1Gb Nic</td><td>meson-gxm</td><td>s912</td><td>no</td></tr>
