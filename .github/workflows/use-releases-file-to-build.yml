@@ -17,6 +17,8 @@ on:
         options:
           - jammy
           - bullseye
+          - lunar
+          - bookworm
       armbian_fstype:
         description: "Select armbian rootfs type."
         required: false
@@ -126,6 +128,7 @@ on:
           - smart-am40
           - sw799
           - zysj
+          - mpc1903
           - beikeyun
           - l1pro
           - station-m1
